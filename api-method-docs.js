@@ -18,9 +18,9 @@
  *                items:
  *                  type: object
  *                  properties:
- *                      id:
+ *                      _id:
  *                          type: string
- *                          example: 8bbd1506-e790-4fad-901d-59dfe2159a86
+ *                          example: 618805765c25eb8edf687a80
  *                      SongName:
  *                          type: string
  *                          example: Wake Me Up
@@ -30,6 +30,12 @@
  *                      Singer:
  *                          type: string
  *                          example: Avicii
+ *                      CreateDate:
+ *                          type: date
+ *                          example: 2021-11-07T16:57:26.313Z
+ *                      __v:
+ *                          type: number
+ *                          example: 0
  *       500:
  *         description: Server Error
  * 
@@ -77,26 +83,34 @@
  *           type: string
  *     responses:
  *       200:
- *          description: Music
+ *          description: Musics List
  *          content:
  *            application/json:
  *              schema:
- *                type: object
- *                properties:
- *                    id:
- *                        type: string
- *                        example: 8bbd1506-e790-4fad-901d-59dfe2159a86
- *                    SongName:
- *                        type: string
- *                        example: Wake Me Up
- *                    Author:
- *                        type: string
- *                        example: Avicii
- *                    Singer:
- *                        type: string
- *                        example: Avicii
+ *                type: array
+ *                items:
+ *                  type: object
+ *                  properties:
+ *                      _id:
+ *                          type: string
+ *                          example: 618805765c25eb8edf687a80
+ *                      SongName:
+ *                          type: string
+ *                          example: Wake Me Up
+ *                      Author:
+ *                          type: string
+ *                          example: Avicii
+ *                      Singer:
+ *                          type: string
+ *                          example: Avicii
+ *                      CreateDate:
+ *                          type: date
+ *                          example: 2021-11-07T16:57:26.313Z
+ *                      __v:
+ *                          type: number
+ *                          example: 0
  *       500:
- *         description: Server Error
+ *          description: Server Error
  * 
  *   patch:
  *     tags:

@@ -1,8 +1,8 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const swaggerUi = require("swagger-ui-express");
 const swaggerJsondoc = require("swagger-jsdoc");
-
 const musicsRoutes = require('./routes/musicsRoutes.js');
 require('dotenv').config();
 
@@ -16,7 +16,7 @@ const options = {
     swaggerDefinition: {
       openapi: "3.0.0",
       info: {
-        title: "18521123 - Assignment 3",
+        title: "18521123 - Assignment 4",
         version: "1.0.0",
         description:
           "Document for Music Management API",
@@ -48,6 +48,13 @@ app.get('/', (req, res) => {
 });
 
 musicsRoutes(app);
+
+//connect to DB
+mongoose.connect(
+    process.env.DB_CONNECTION,
+    { useNewUrlParser: true },
+    () => console.log('Connect to DB')
+);
 
 //Listen to the server
 app.listen(port, () => console.log(`Server running on port: ${port}`));
